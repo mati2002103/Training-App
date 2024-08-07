@@ -1,25 +1,6 @@
-// frontend/src/App.js
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './App.css';  // Importujemy styl
 
-function App() {
-  const [plan, setPlan] = useState(null);
-
-  useEffect(() => {
-    fetch('/api/generate_plan')
-      .then(response => response.json())
-      .then(data => setPlan(data));
-  }, []);
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Workout Plan</h1>
-        {plan && (
-          <pre>{JSON.stringify(plan, null, 2)}</pre>
-        )}
-      </header>
-    </div>
-  );
-}
-
-export default App;
+ReactDOM.render(<App />, document.getElementById('root'));
